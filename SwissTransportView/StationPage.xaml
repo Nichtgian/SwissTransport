@@ -13,52 +13,89 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="10*"/>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150*"/>
-                <ColumnDefinition Width="150*"/>
-                <ColumnDefinition Width="100*"/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="2">
-                <Button x:Name="btnSearch" TabIndex="3" Content="Verbindung Suchen" Click="getConnections" IsDefault="True"/>
-            </Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
             <Grid>
-                <ComboBox x:Name="cmbxFrom" TabIndex="0" IsEditable="True" TextBoxBase.TextChanged="stationInput" PreviewTextInput="previewInput" SelectionChanged="selectStation" Text="{Binding Path=Selected.From}" ItemsSource="{Binding Path=Hints.Stations}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=Name}"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Label Content="Von" FontWeight="Bold"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Label Content="Nach" FontWeight="Bold"/>
+                </Grid>
             </Grid>
-            <Grid Grid.Column="1">
-                <ComboBox x:Name="cmbxTo" TabIndex="1" IsEditable="True" TextBoxBase.TextChanged="stationInput" PreviewTextInput="previewInput" SelectionChanged="selectStation" Text="{Binding Path=Selected.To}" ItemsSource="{Binding Path=Hints.Stations}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=Name}"/>
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="2">
+                    <Button x:Name="btnSearch" TabIndex="3" Content="Verbindung Suchen" Click="getConnections" IsDefault="True"/>
+                </Grid>
+                <Grid>
+                    <ComboBox x:Name="cmbxFrom" TabIndex="0" IsEditable="True" TextBoxBase.TextChanged="stationInput" PreviewTextInput="previewInput" SelectionChanged="selectStation" Text="{Binding Path=Selected.From}" ItemsSource="{Binding Path=Hints.Stations}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <ComboBox x:Name="cmbxTo" TabIndex="1" IsEditable="True" TextBoxBase.TextChanged="stationInput" PreviewTextInput="previewInput" SelectionChanged="selectStation" Text="{Binding Path=Selected.To}" ItemsSource="{Binding Path=Hints.Stations}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=Name}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="150*"/>
-                <ColumnDefinition Width="150*"/>
-            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
             <Grid>
-                <DatePicker x:Name="dapiDate" FirstDayOfWeek="Monday" Text="{Binding Path=Selected.Date}" TextBoxBase.TextChanged="setDate">
-                    
-                </DatePicker>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="15*"/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Label Content="Datum (dd.MM.yyyy)" FontWeight="Bold"/>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Label Content="Zeit (HH:mm)" FontWeight="Bold"/>
+                </Grid>
             </Grid>
-            <Grid Grid.Column="1">
-                <TextBox x:Name="txtTime" Text="{Binding Path=Selected.Time}" TextBoxBase.TextChanged="setTime">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="15*"/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <DatePicker x:Name="dapiDate" FirstDayOfWeek="Monday" Text="{Binding Path=Selected.Date}" TextBoxBase.TextChanged="setDate">
 
-                </TextBox>
+                    </DatePicker>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <TextBox x:Name="txtTime" Text="{Binding Path=Selected.Time}" TextBoxBase.TextChanged="setTime">
+
+                    </TextBox>
+                </Grid>
             </Grid>
         </Grid>
         <Grid Grid.Row="2">

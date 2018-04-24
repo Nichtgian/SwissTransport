@@ -86,7 +86,6 @@ namespace SwissTransportView
         /*get a list of connections between input stations*/
         public void getConnections()
         {
-            List<Connection> connections = null;
             string errors = "";
 
             if (Selected.From == null || Selected.From == "")
@@ -97,12 +96,7 @@ namespace SwissTransportView
             {
                 errors += "To Station is Empty!\n";
             }
-            if (Selected.From == Selected.To)
-            {
-                errors += "From and To Stations are the same!\n";
-            }
 
-            /*fill input stations with best match*/
             if (errors == "")
             {
                 List<Station> from = transport.GetStations(Selected.From).StationList;
@@ -126,9 +120,13 @@ namespace SwissTransportView
                     Selected.To = to[0].Name;
                     OnPropertyChanged("Selected");
                 }
+
+                if (errors == "" && Selected.From == Selected.To)
+                {
+                    errors += "From and To Stations are the same!\n";
+                }
             }
 
-            /*get and parse input date and time*/
             string date = "";
             try
             {
@@ -153,20 +151,14 @@ namespace SwissTransportView
 
             if (errors == "")
             {
-                connections = transport.GetConnections(Selected.From, Selected.To, date, time).ConnectionList;
-            }
-
-
-            if (errors == "" && connections != null && connections.Count > 0)
-            {
                 try
                 {
-                    Connections.List = connections;
+                    Connections.List = transport.GetConnections(Selected.From, Selected.To, date, time).ConnectionList;
                     OnPropertyChanged("Connections");
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
-                    MessageBox.Show("Error at getting connections occured: " + e.ToString());
+                    MessageBox.Show("No connection!");
                 }
             }
             else

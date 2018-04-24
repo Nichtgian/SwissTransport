@@ -153,8 +153,10 @@ und es muss eine gültige Zeit sein, ansonsten wird dies in einem Fenster mitget
 
 | Schritt | Aktivität                                                     | Erwartetes Resultat                                      |
 | ------- | ------------------------------------------------------------- | -------------------------------------------------------- | 
-| 1       | Ich gebe Text in ein Eingabefeld (zB. Von oder Nach) ein      | Es erscheint bei gefundenen Resultaten ein Dropdown mit den passenden Stationen |
-| 2       | Ich wähle eine Station in der Vorschlagsliste an              | Die ausgewählte Station wird in das Eingabefeld eingefügt |
+| 1       | Ich gebe "zu" in das Eingabefeld Von auf der Verbindungsseite ein | Es wird eine Dropdown Liste unter dem Eingabefeld mit den Elementen Zürich HB, Zürich Oerlikon, Zürich Flughafen.. angezeigt |
+| 2       | Ich gebe "zu" in das Eingabefeld Nach auf der Verbindungsseite ein | Es wird eine Dropdown Liste unter dem Eingabefeld mit den Elementen Zürich HB, Zürich Oerlikon, Zürich Flughafen.. angezeigt |
+| 3       | Ich gebe "zu" in das Eingabefeld Station auf der Abfahrtsplansseite ein | Es wird eine Dropdown Liste unter dem Eingabefeld mit den Elementen Zürich HB, Zürich Oerlikon, Zürich Flughafen.. angezeigt |
+| 4       | Ich wähle "Zürich HB" aus der Dropdown Liste unter Von auf der Verbindungsseite aus | Zürich HB steht im Eingabefeld Von |
 
 ### 3.4.2 Station suchen
 **Vorbedingung** Ich bin auf der Verbindungsseite. 
@@ -165,16 +167,18 @@ und es muss eine gültige Zeit sein, ansonsten wird dies in einem Fenster mitget
 
 | Schritt | Aktivität                                                     | Erwartetes Resultat                                      |
 | ------- | ------------------------------------------------------------- | -------------------------------------------------------- | 
-| 1       | Ich lasse ein Eingabefeld für Stationen frei                  | Es wird eine Meldung mit dem oder den frei gelassenen Felder/n angezeigt |
-| 2       | Ich suche nach der gleichen Station                           | Es wird eine Meldung angezeigt, dass die Felder nicht gleich sein dürfen |
-| 3       | Von- und Nachstation sind nicht fertig Ausgefüllt             | Es wird wenn möglich der am beste Vorschlag eingefüllt oder eine Fehlermeldung ausgegeben |
-| 4       | Ich ändere das Datum (Standartmässig aktuelles Datum)         | Ist es kein gültiges Datum, wird dies mitgeteilt |
-| 5       | Ich ändere die Zeit (Standartmässig aktuelle Zeit)            | Ist es kein gültige Zeit, wird dies mitgeteilt |
-| 6       | Alle Felder sind korrekt Ausgefüllt und ich Suche nach Verbindungen | Es wird eine Liste mit den nächsten Verbindungen angezeigt |
-| 7       | Ich wähle eine Verbindung aus der Liste and                   | Es wird ein Fenster mit genaueren Details zur ausgewählten Verbindung angezeigt |
+| 1       | Ich lasse das Eingabefeld Von frei                            | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung, dass die Von Station nicht ausgefüllt ist |
+| 2       | Ich lasse das Eingabefeld Nach frei                           | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung, dass die Nach Station nicht ausgefüllt ist |
+| 3       | Ich gebe in das Eingabefeld Von "lu" ein                      | Wenn nach einer Verbindung gesucht wird, wird in das Eingabefeld Von "Luzern" eingefüllt |
+| 4       | Ich gebe in das Eingabefeld Nach "zu" ein                     | Wenn nach einer Verbindung gesucht wird, wird in das Eingabefeld Von "Zürich HB" eingefüllt |
+| 5       | Ich gebe in den Eingabefeldern Von "lu" und Nach "lu"         | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung, dass die Von "Luzern" und Nach "Luzern" Station nicht die selben sein dürfen |
+| 6       | Ich gebe in den Eingabefeldern Von "luz" und Nach "lu"        | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung, dass die Von "Luzern "und Nach "Luzern" Station nicht die selben sein dürfen |
+| 7       | Ich gebe in das Eingabefeld Von "Mettmenstetten" und Nach "Zug" ein und suche nach einer Verbindung | Es erscheint eine Liste mit den nächsten Verbindungen von Mettmenstetten nach Zug |
+| 8       | Ich gebe in das Eingabefeld Datum "www" ein                   | Das Eingabefeld wird beim Versetzen des Fokus auf den vorherigen Wert zurückgesetzt |
+| 9       | Ich gebe in das Eingabefeld Zeit "www" ein                    | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung dass die angegebene Zeit "www" ungültig ist |
+| 10      | Ich gebe in das Eingabefeld Von "Mettmenstetten" und Nach "Zug" ein und suche nach einer Verbindung | Wenn ich auf eine Verbindung in der Liste drücke erscheint ein Fenster mit genaueren Details zur ausgewählten Verbindung |
 
-
-### 3.4.2 Abfahrtsplan anzeigen
+### 3.4.3 Abfahrtsplan anzeigen
 **Vorbedingung** Ich bin auf der Abfahrtsplansseite. 
 
 **Anforderung** A03
@@ -183,10 +187,10 @@ und es muss eine gültige Zeit sein, ansonsten wird dies in einem Fenster mitget
 
 | Schritt | Aktivität                                                     | Erwartetes Resultat                                      |
 | ------- | ------------------------------------------------------------- | -------------------------------------------------------- | 
-| 1       | Ich lasse das Eingabefeld für die Station frei                | Es wird eine Meldung angezeigt, dass das Feld nicht frei sein darf |
-| 2       | Ich fülle das Eingabefeld zur Station nicht fertig aus        | Es wird wenn möglich der beste Vorschlag eingefüllt oder eine Fehlermeldung ausgegeben |
-| 3       | Die Station ist korrekt angegeben und ich klicke auf Abfahrtsplan anzeigen | Es wird eine Liste mit den nächsten Abfahrten angezeigt |
-| 4       | Die Station ist korrekt angegeben und ich klicke auf Stationsort anzeigen | Es wird Google Maps in einem Browserfenster an der angegebener Station geöffnet |
+| 1       | Ich lasse das Eingabefeld Station frei                        | Wenn auf Abfahrtsplan anzeigen geklickt wird, erscheint in einer Mitteilung, dass die Station nicht ausgefüllt ist |
+| 2       | Ich gebe in das Eingabefeld Station "lu" ein                  | Wenn nach einer Verbindung gesucht wird, wird in das Eingabefeld Station "Luzern" eingefüllt |
+| 3       | Ich gebe in das Eingabefeld Station "Luzern" ein und klicke auf Abfahrtsplan anzeigen | Es wird eine Liste mit den nächsten Abfahrten ab Luzern angezeigt |
+| 4       | Ich gebe in das Eingabefeld Station "Luzern" ein und klicke auf Stationsort anzeigen | Es wird Google Maps in einem Browserfenster geöffnet und darin wird Luzern angezeigt |
 
 <a name="usecase"/>
 
@@ -249,7 +253,7 @@ Zurzeit sind alle **Bugs behoben** und **keine** weiteren Fehler bekannt.
 ## 4.3 Screenshot der Anwendung
 ### 4.3.1 Verbindungsseite
 
-![Station](/img/station.JPG)
+![Station](/img/connection.JPG)
 
 ### 4.3.2 Abfahrtsplansseite
 
