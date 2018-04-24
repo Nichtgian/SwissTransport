@@ -11,7 +11,7 @@
 * [4 Umsetzung](#implementation)  
   * [4.1 Funktionen](#features)  
   * [4.2 fehlede Funktionen und Bugs](#bugs)  
-  * [4.3 Screenshot](#screenshot) 
+  * [4.3 Screenshots](#screenshot) 
 * [5 Testbericht](#report)
 * [6 Installation](#install)  
 
@@ -34,9 +34,9 @@ Das Projekt soll als Desktop Anwendung auf eine API zugreifen und anschliessend 
 Die Applikation ist zusammen mit der Dokumentation auf GitHub zu finden.
 
 ### 2.3.1 Management Summary
-Dies SwissTransport Desktop-Applikation soll es ihren Benutzern erlauben, zum Einen Reisen und Ausflüge am aktuellen Datum und Zeitpunkt oder an einem zukünftigen Datum und einem anderen Zeitpunk zu Planen.
+Dies SwissTransport Desktop-Applikation soll es ihren Benutzern erlauben, zum einen Reisen und Ausflüge am aktuellen Datum und Zeitpunkt oder an einem zukünftigen Datum und einem anderen Zeitpunkt zu Planen.
 Sie erhalten durch die Angaben eine Liste mit den nächsten Verbindungen, und können dann genaue Details wie das exakte Datum, die Reisedauer oder die Gleisnummern abrufen.
-Zum Anderen kann nach allen Abfahrten ab einer Station gesucht werden. 
+Zum anderen kann nach allen Abfahrten ab einer Station gesucht werden. 
 Man erhält eine Liste mit genauen Details zu den einzelnen Abfahrten beinhaltend des Reisezieles und der Abfahrtsidentifikation wie IR70.
 Die Applikation meldet dem Benutzer falsche Eingaben direkt zurück und übernimmt das Vervollständigen von nicht fertig eingegebenen Stationsnamen. 
 
@@ -171,8 +171,8 @@ und es muss eine gültige Zeit sein, ansonsten wird dies in einem Fenster mitget
 | 2       | Ich lasse das Eingabefeld Nach frei                           | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung, dass die Nach Station nicht ausgefüllt ist |
 | 3       | Ich gebe in das Eingabefeld Von "lu" ein                      | Wenn nach einer Verbindung gesucht wird, wird in das Eingabefeld Von "Luzern" eingefüllt |
 | 4       | Ich gebe in das Eingabefeld Nach "zu" ein                     | Wenn nach einer Verbindung gesucht wird, wird in das Eingabefeld Von "Zürich HB" eingefüllt |
-| 5       | Ich gebe in den Eingabefeldern Von "lu" und Nach "lu"         | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung, dass die Von "Luzern" und Nach "Luzern" Station nicht die selben sein dürfen |
-| 6       | Ich gebe in den Eingabefeldern Von "luz" und Nach "lu"        | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung, dass die Von "Luzern "und Nach "Luzern" Station nicht die selben sein dürfen |
+| 5       | Ich gebe in den Eingabefeldern Von "lu" und Nach "lu"         | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung, dass die Von "Luzern" und Nach "Luzern" Station nicht dieselben sein dürfen |
+| 6       | Ich gebe in den Eingabefeldern Von "luz" und Nach "lu"        | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung, dass die Von "Luzern "und Nach "Luzern" Station nicht dieselben sein dürfen |
 | 7       | Ich gebe in das Eingabefeld Von "Mettmenstetten" und Nach "Zug" ein und suche nach einer Verbindung | Es erscheint eine Liste mit den nächsten Verbindungen von Mettmenstetten nach Zug |
 | 8       | Ich gebe in das Eingabefeld Datum "www" ein                   | Das Eingabefeld wird beim Versetzen des Fokus auf den vorherigen Wert zurückgesetzt |
 | 9       | Ich gebe in das Eingabefeld Zeit "www" ein                    | Wenn nach einer Verbindung gesucht wird, erscheint in einer Mitteilung dass die angegebene Zeit "www" ungültig ist |
@@ -250,7 +250,7 @@ Zurzeit sind alle **Bugs behoben** und **keine** weiteren Fehler bekannt.
 
 <a name="screenshot"/>
 
-## 4.3 Screenshot der Anwendung
+## 4.3 Screenshots der Anwendung
 ### 4.3.1 Verbindungsseite
 
 ![Station](/img/connection.JPG)
@@ -262,7 +262,7 @@ Zurzeit sind alle **Bugs behoben** und **keine** weiteren Fehler bekannt.
 <a name="report"/>
 
 # 5 Testbericht
-* Die Unittests wurden fehlerfrei durchgeführt.
+* Die Unit Tests wurden fehlerfrei durchgeführt.
 * Alle Testfälle konnten ohne Fehler durchgeführt werden.
 * Alle implementierten Funktionalitäten können ohne Probleme ausgeführt werden.
 
