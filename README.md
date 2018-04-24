@@ -26,12 +26,19 @@
 ## 2.2 Projekt
 * Projektstart: **18.04.2018**   
 * Projektende: **24.04.2018** 
-* Der Source sowie die Dokumentation sinf auf GitHub unter **https://github.com/Nichtgian/SwissTransport**
+* Der Source sowie die Dokumentation sind auf GitHub unter **https://github.com/Nichtgian/SwissTransport**
 
 ## 2.3 Einleitung
 Im ÜK Modul 318 wurde zur Festigung des Gelernten und zur Bewertung eine Projektarbeit, inklusive Dokumentation in einer Einzelarbeit erstellt.
 Das Projekt soll als Desktop Anwendung auf eine API zugreifen und anschliessend diverse Daten wie Verbindungen zwischen Stationen anzeigen.
 Die Applikation ist zusammen mit der Dokumentation auf GitHub zu finden.
+
+### 2.3.1 Management Summary
+Dies SwissTransport Desktop-Applikation soll es ihren Benutzern erlauben, zum Einen Reisen und Ausflüge am aktuellen Datum und Zeitpunkt oder an einem zukünftigen Datum und einem anderen Zeitpunk zu Planen.
+Sie erhalten durch die Angaben eine Liste mit den nächsten Verbindungen, und können dann genaue Details wie das exakte Datum, die Reisedauer oder die Gleisnummern abrufen.
+Zum Anderen kann nach allen Abfahrten ab einer Station gesucht werden. 
+Man erhält eine Liste mit genauen Details zu den einzelnen Abfahrten beinhaltend des Reisezieles und der Abfahrtsidentifikation wie IR70.
+Die Applikation meldet dem Benutzer falsche Eingaben direkt zurück und übernimmt das Vervollständigen von nicht fertig eingegebenen Stationsnamen. 
 
 ## 2.4 Dokumentation
 Diese Dokumentation beinhaltet die Planung, die Umsetzung, und das Endergebnis zusammen mit Testfällen und einer Installationsanleitung.
@@ -45,10 +52,10 @@ Sie soll als Nachschlagewerk dienen und wurde für eine einfache Handhabung und 
 
 ### 2.5.2 Priorität 2
 - [x] 04 Während der Eingabe einer Station bereits Suchresultate erhalten
-- [x] 05 Verbindungen an beliebigem Datum anuzeigen
+- [x] 05 Verbindungen an beliebigem Datum anzeigen
 
 ### 2.5.3 Priorität 3
-- [x] 06 Ort einer Station anzeigen (Maps)
+- [x] 06 Ort und Umgebung einer Station anzeigen (Maps)
 - [ ] 07 Stationen in meiner Nähe finden
 - [ ] 08 Gefundene Resultate per Mail verschicken
 
@@ -77,7 +84,7 @@ else
     false = true;
 }
 ```
-Ich **verzichte auf die Kurzschreibweise** ohne geschweifte Klammern bei bei IF Verzweigungen, werde aber bei bool Parameter
+Ich **verzichte auf die Kurzschreibweise** ohne geschweifte Klammern bei if-Verzweigungen, werde aber bei bool Parameter
 den **ternären Operator** ( ? : ) anstatt if else brauchen.
 ```
 getSomething(true ? true : false);
@@ -96,21 +103,23 @@ public void getStation(string input)
 <a name="mockup"/>
 
 ## 3.2 Mockup
+Für die beiden Hauptfunktionalitäten Verbindungen suchen und Abfahrtsplan anzeigen werde ich zwei Seiten erstellen. 
+Diese beiden Seiten werden in einer Hauptseite (SwissTransportView) geladen, welche nur eine Menüleiste zur Navigation zwischen den Seiten beinhaltet.
 ### 3.2.1 Verbindungen
-Es können zwei Stationen oder Orte (Von und Nach) angegeben werden. 
+**StationPage** Es können zwei Stationen oder Orte (Von und Nach) angegeben werden. 
 Standartmässig wird das aktuelle Datum und Zeit eingefüllt, jedoch kann das Abfahrtsdatum und die Abfahrtszeit beliebig angegeben werden.
 Wird nach Verbindungen gesucht, werden von der API die nächsten Verbindungen anhand der Eingaben zurückgegeben, welche in die Liste gefüllt werden. 
 Es werden pro Verbindung die Vonstation und Abfahrtszeit sowie der Nachstation und Ankunftszeit angezeigt. 
 Wird ein Listenelement angewählt, erscheint ein neues Fenster mit mehr Details (Vonstation, genaue Abfahrtszeit sowie dem Gleis, 
-die Reisezeit und die Nachstation mit genauer Ankunftszeit und Gleis). Bei Falschen Angaben erscheint eine Nachricht, welche die Fehlerhaften
-angaben zurückmeldet.
+die Reisezeit und die Nachstation mit genauer Ankunftszeit und Gleis). Bei Falschen Angaben erscheint eine Nachricht, welche die fehlerhaften
+Angaben zurückmeldet.
 
 In der Menüleiste kann auf die Abfahrtsplans Seite gewechselt werden.
 
 ![Mockup Verbindungen](/img/StationMockup.JPG)
 
 ### 3.2.2 Abfahrtsplan
-Es kann eine Station angegeben werden. Mit Abfahrtsplan anzeigen werden alle Abfahrten von der Station ausgehend in die Liste gefüll.
+**BoardPage** Es kann eine Station angegeben werden. Mit Abfahrtsplan anzeigen werden alle Abfahrten von der Station ausgehend in die Liste gefüllt.
 Es werden der Name, seine Zugskategorie, die Gleisnummer und die Ankunftsstation angezeigt. 
 Mit Stationsort anzeigen wird Google Maps in einem Browserfenster an der angegebenen Station geöffnet.
 
@@ -122,7 +131,7 @@ In der Menüleiste kann auf die Verbindungen Seite gewechselt werden.
 
 ## 3.3 Validierung
 * **Stationen** Es werden direkt bei der Eingabe Suchresultate in einem Dropdown angezeigt. Diese Resultate werden nach Wichtigkeit und Zusammenpassen sortiert angezeigt 
-und können angeklickt werden, was zum verfollständigen der Eingabe führt. Wurde ein Stationsname bei einer Verbindungs- oder Abfahrtsplanssuche fertig geschrieben, 
+und können angeklickt werden, was zur Vervollständigung der Eingabe führt. Wurde ein Stationsname bei einer Verbindungs- oder Abfahrtsplanssuche fertig geschrieben, 
 wird nach einem Match gesucht und eingefügt. Falls keiner gefunden wurde wird dies gemeldet.
 Stationsnamen dürfen nicht leer und bei der Verbindungsseite die Abfahrts- und Ankunftsstation nicht gleich sein.
 
@@ -144,11 +153,11 @@ und es muss eine gültige Zeit sein, ansonsten wird dies in einem Fenster mitget
 
 | Schritt | Aktivität                                                     | Erwartetes Resultat                                      |
 | ------- | ------------------------------------------------------------- | -------------------------------------------------------- | 
-| 1       | Ich gebe Text in ein Eingabefeld (zb. Von oder Nach) ein      | Es erscheint bei gefundenen Resultaten ein Dropdown mit den passenden Stationen |
+| 1       | Ich gebe Text in ein Eingabefeld (zB. Von oder Nach) ein      | Es erscheint bei gefundenen Resultaten ein Dropdown mit den passenden Stationen |
 | 2       | Ich wähle eine Station in der Vorschlagsliste an              | Die ausgewählte Station wird in das Eingabefeld eingefügt |
 
 ### 3.4.2 Station suchen
-**Vorbedingung** Es kann nach einer Station gesucht werden (Verbindungs- oder Abfahrtsplansseite). 
+**Vorbedingung** Ich bin auf der Verbindungsseite. 
 
 **Anforderung** A02
 
@@ -156,32 +165,28 @@ und es muss eine gültige Zeit sein, ansonsten wird dies in einem Fenster mitget
 
 | Schritt | Aktivität                                                     | Erwartetes Resultat                                      |
 | ------- | ------------------------------------------------------------- | -------------------------------------------------------- | 
-| 1       | Ich gebe Text in ein Eingabefeld (zb. Von oder Nach) ein      | Es erscheint bei gefundenen Resultaten ein Dropdown mit den passenden Stationen |
-| 2       | Ich wähle eine Station in der Vorschlagsliste an              | Die ausgewählte Station wird in das Eingabefeld eingefügt |
+| 1       | Ich lasse ein Eingabefeld für Stationen frei                  | Es wird eine Meldung mit dem oder den frei gelassenen Felder/n angezeigt |
+| 2       | Ich suche nach der gleichen Station                           | Es wird eine Meldung angezeigt, dass die Felder nicht gleich sein dürfen |
+| 3       | Von- und Nachstation sind nicht fertig Ausgefüllt             | Es wird wenn möglich der am beste Vorschlag eingefüllt oder eine Fehlermeldung ausgegeben |
+| 4       | Ich ändere das Datum (Standartmässig aktuelles Datum)         | Ist es kein gültiges Datum, wird dies mitgeteilt |
+| 5       | Ich ändere die Zeit (Standartmässig aktuelle Zeit)            | Ist es kein gültige Zeit, wird dies mitgeteilt |
+| 6       | Alle Felder sind korrekt Ausgefüllt und ich Suche nach Verbindungen | Es wird eine Liste mit den nächsten Verbindungen angezeigt |
+| 7       | Ich wähle eine Verbindung aus der Liste and                   | Es wird ein Fenster mit genaueren Details zur ausgewählten Verbindung angezeigt |
 
-```
-GEGEBEN SEI   Ich bin auf der Verbindungsseite
-WENN          nach Verbindungen suche
-DANN          werden anhand der Angaben (Stationen und Datum/Zeit) die nächsten Verbindungen in eine Liste gefüllt.
-```
-**#3**
-```
-GEGEBEN SEI   Ich bin auf der Verbindungsseite
-WENN          ich in der Menüleiste auf Abfahrtsplan drücke
-DANN          wird die Abfahrtsplansseite geladen.
-```
-**#4**
-```
-GEGEBEN SEI   Ich bin auf der Abfahrtsplansseite
-WENN          ich auf Abfahrtsplan anzeigen drücke 
-DANN          werden anhand der eingegebener Station die gefundenen Abfahrten in eine Liste gefüllt.
-```
-**#5**
-```
-GEGEBEN SEI   Ich bin auf der Abfahrtsplansseite
-WENN          ich auf Stationsort anzeigen drücke 
-DANN          wird Google Maps in einem Browserfenster bei der angegebener Station geöffnet.
-```
+
+### 3.4.2 Abfahrtsplan anzeigen
+**Vorbedingung** Ich bin auf der Abfahrtsplansseite. 
+
+**Anforderung** A03
+
+**Testszenario**
+
+| Schritt | Aktivität                                                     | Erwartetes Resultat                                      |
+| ------- | ------------------------------------------------------------- | -------------------------------------------------------- | 
+| 1       | Ich lasse das Eingabefeld für die Station frei                | Es wird eine Meldung angezeigt, dass das Feld nicht frei sein darf |
+| 2       | Ich fülle das Eingabefeld zur Station nicht fertig aus        | Es wird wenn möglich der beste Vorschlag eingefüllt oder eine Fehlermeldung ausgegeben |
+| 3       | Die Station ist korrekt angegeben und ich klicke auf Abfahrtsplan anzeigen | Es wird eine Liste mit den nächsten Abfahrten angezeigt |
+| 4       | Die Station ist korrekt angegeben und ich klicke auf Stationsort anzeigen | Es wird Google Maps in einem Browserfenster an der angegebener Station geöffnet |
 
 <a name="usecase"/>
 
@@ -194,7 +199,7 @@ zwei Stationen anzeigen und einen Abfahrtsplan von einer Station aus ausgehend a
 <a name="activity"/>
 
 ## 3.6 Aktivitätendiagramm
-Der grobe Ablauf (alle Priorität 1 Anforderungen) der Anwendung ist in diesem Aktivitätenprogramm zusammengefasst.
+Der grobe Ablauf (alle Priorität 1 Anforderungen) der Anwendung ist in diesem Aktivitätendiagramm zusammengefasst.
 
 ![Aktivitätendiagramm](/img/activity.JPG)
 
@@ -217,11 +222,9 @@ Der grobe Ablauf (alle Priorität 1 Anforderungen) der Anwendung ist in diesem A
 ✔ **Funktion fehlerfrei implementiert**
 
 ### 4.1.1 zusätzliche Funktionen
-**Autocomplete Station** Ist bei einer Station nur der Anfang (zb. ba) eingegeben worden, 
+**Autocomplete Station** Ist bei einer Station nur der Anfang (zB. ba) eingegeben worden, 
 wird bei einer Suche (Verbindung suchen oder Abfahrtsplan anzeigen) nach einem besten Vorschlag gesucht 
 und in das Eingabefeld eingefügt (hier Basel SBB). Wird keine Station gefunden wird dies Mitgeteilt.
-
-**TEXT**
 
 <a name="bugs"/>
 
@@ -244,23 +247,25 @@ Zurzeit sind alle **Bugs behoben** und **keine** weiteren Fehler bekannt.
 <a name="screenshot"/>
 
 ## 4.3 Screenshot der Anwendung
-### Verbindungen zwischen zwei Stationen
+### 4.3.1 Verbindungsseite
 
 ![Station](/img/station.JPG)
 
-### Abfahrtsplan ab einer Station
+### 4.3.2 Abfahrtsplansseite
 
 ![Board](/img/board.JPG)
 
 <a name="report"/>
 
 # 5 Testbericht
-**TEXT**
+* Die Unittests wurden fehlerfrei durchgeführt.
+* Alle Testfälle konnten ohne Fehler durchgeführt werden.
+* Alle implementierten Funktionalitäten können ohne Probleme ausgeführt werden.
 
 <a name="install"/>
 
 # 6 Installation
-**TEXT**
+
 
 
 
