@@ -27,6 +27,7 @@
 * Projektstart: **18.04.2018**   
 * Projektende: **24.04.2018** 
 * Der Source sowie die Dokumentation sind auf GitHub unter **https://github.com/Nichtgian/SwissTransport**
+* Download der Installationsdatei SwissTransportSetup.msi **https://github.com/Nichtgian/SwissTransport/blob/master/SwissTransportSetup.msi?raw=true**
 
 ## 2.3 Einleitung
 Im ÜK Modul 318 wurde zur Festigung des Gelernten und zur Bewertung eine Projektarbeit, inklusive Dokumentation in einer Einzelarbeit erstellt.
@@ -74,7 +75,7 @@ wodurch keine Logik im Code behind von Views und Pages steht und diese nur Event
 
 ### 3.1.2 Methoden, Schleifen, Verzweigungen, Try Catch
 In C# kommen geschweifte Klammern grundsätzlich auf die **nächste Zeile**, weshalb ich dies bei Methoden, Schleifen und Verzweigungen einhalten werden.
-```
+```javascript
 if (true)
 {
     true = false;
@@ -86,13 +87,13 @@ else
 ```
 Ich **verzichte auf die Kurzschreibweise** ohne geschweifte Klammern bei if-Verzweigungen, werde aber bei bool Parameter
 den **ternären Operator** ( ? : ) anstatt if else brauchen.
-```
+```javascript
 getSomething(true ? true : false);
 ```
 
 ### 3.1.3 Kommentare
 Ich kommentiere grundsätzlich **jede Methode oberhalb** mit /* */, verzichte ansonsten auf Kommentare.
-```
+```javascript
 /*returns station from input*/
 public void getStation(string input)
 {
@@ -269,7 +270,28 @@ Zurzeit sind alle **Bugs behoben** und **keine** weiteren Fehler bekannt.
 <a name="install"/>
 
 # 6 Installation
+## 6.1 Download
+Die Setupdatei kann direkt von GitHub heruntergeladen werden und wird im Download Ordner gespeichert.
 
+[<img src="/img/download.jpg">](https://github.com/Nichtgian/SwissTransport/blob/master/SwissTransportSetup.msi?raw=true)
+
+oder
+
+**https://github.com/Nichtgian/SwissTransport/blob/master/SwissTransportSetup.msi?raw=true** 
+
+## 6.2 Setup
+Gehe in den Downloads Ordner oder **führe die Setupdatei SwissTransportSetup.msi** direkt vom Browser aus aus. 
+Falls eine Meldung eingeblendet wird, dass der Computer durch Windows gesschütz ist, klicke auf **Trotzdem Ausführen**, um mit der Installation zu beginnen.
+
+Klicke auf **Next**
+
+Die Anwendung wird standartmässig im Program Files Ordner installiert, wenn sie aber in einen anderen Ordner installiert werden soll klicke auf **Browse** 
+und wähle einen anderen Ordner. Du kannst ausserdem auswählen, ob die Anwendung für alle Benutzer des Computers (Everyone) oder nur für dich **Just me** zugänglich sein soll.
+Mit **Next** kannst du deine Eingaben bestätigen.
+
+Klicke auf **Next** um die Anwendung zu installieren.
+
+Die Anwendung ist nun auf deinem Computer im festgelegten Ordner installiert. Die Setupdatei kann ausserdem zur **Reperatur und Deinstallation** der Anwendung genutzt werden.
 
 
 
