@@ -72,8 +72,7 @@ wodurch keine Logik im Code behind von Views und Pages steht und diese nur Event
 ### 3.1.1 Namensgebung
 * **Variablen und Methoden** werden nach **camelCase** benannt -> erster Buchstabe klein, Wortanfänge im Namen gross
 * **Eigenschaften** werden nach **PascalCase** benannt -> erster Buchstabe gross, Wortanfänge im Namen gross
-```javascript
-/*returns station from input*/
+```csharp
 public string camelCase = "";
 public string PascalCase { get; set; }
 ```
@@ -81,7 +80,7 @@ public string PascalCase { get; set; }
 
 ### 3.1.2 Methoden, Schleifen, Verzweigungen, Try Catch
 In C# kommen geschweifte Klammern grundsätzlich auf die **nächste Zeile**, weshalb ich dies bei Methoden, Schleifen und Verzweigungen einhalten werden.
-```javascript
+```csharp
 if (true)
 {
     true = false;
@@ -93,13 +92,13 @@ else
 ```
 Ich **verzichte auf die Kurzschreibweise** ohne geschweifte Klammern bei if-Verzweigungen, werde aber bei bool Parameter
 den **ternären Operator** ( ? : ) anstatt if else brauchen.
-```javascript
+```csharp
 getSomething(true ? true : false);
 ```
 
 ### 3.1.3 Kommentare
 Ich kommentiere grundsätzlich **jede Methode oberhalb** mit /* */, verzichte ansonsten auf Kommentare.
-```javascript
+```csharp
 /*returns station from input*/
 public void getStation(string input)
 {
@@ -109,14 +108,14 @@ public void getStation(string input)
 
 ### 3.1.4 Eigenschafte
 Die Namensgebung von Eigenschaften (Propertys) ist in PascalCase. Geschweifte Klammern werde ich bei kurzer Schreibweise auf einer Zeile und bei ausgeschriebenen Eigenschaften auf die nächste Zeile schreiben.
-```javascript
-public string PascalCase { get; set; }
+```csharp
 private string country;
 public string Country
 {
     get { return country }
     set { country = value; anyFunction(); }
 }
+public string City { get; set; }
 ```
 
 <a name="mockup"/>
@@ -298,7 +297,7 @@ oder
 **https://github.com/Nichtgian/SwissTransport/blob/master/SwissTransportSetup.msi?raw=true** 
 
 ## 6.2 Setup
-Gehe in den Downloads Ordner oder **führe die Setupdatei SwissTransportSetup.msi** direkt vom Browser aus aus. 
+Gehe in den Downloads Ordner oder führe die **Setupdatei SwissTransportSetup.msi** direkt vom Browser aus aus. 
 Falls eine Meldung eingeblendet wird, dass der Computer durch Windows geschütz wurde, klicke auf **Weitere Informationen** und **Trotzdem ausführen**, um mit der Installation zu beginnen.
 
 Klicke auf **Next**
@@ -311,5 +310,5 @@ Klicke auf **Next** um die Anwendung zu installieren.
 
 Die Anwendung ist nun auf deinem Computer im festgelegten Ordner installiert. Die Setupdatei kann ausserdem zur **Reperatur und Deinstallation** der Anwendung genutzt werden.
 
-
+> Best SwissTransport Application in the whole Universe!
 
