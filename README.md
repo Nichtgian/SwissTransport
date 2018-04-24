@@ -281,7 +281,7 @@ oder
 
 ## 6.2 Setup
 Gehe in den Downloads Ordner oder **führe die Setupdatei SwissTransportSetup.msi** direkt vom Browser aus aus. 
-Falls eine Meldung eingeblendet wird, dass der Computer durch Windows gesschütz ist, klicke auf **Trotzdem Ausführen**, um mit der Installation zu beginnen.
+Falls eine Meldung eingeblendet wird, dass der Computer durch Windows geschütz wurde, klicke auf **Weitere Informationen** und **Trotzdem ausführen**, um mit der Installation zu beginnen.
 
 Klicke auf **Next**
 
