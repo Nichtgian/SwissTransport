@@ -70,8 +70,14 @@ wodurch keine Logik im Code behind von Views und Pages steht und diese nur Event
 
 ## 3.1 Coderichtlinien
 ### 3.1.1 Namensgebung
-* **Variablen und Methoden** werden nach **camelCase** benannt -> erster Buchstabe klein, Wortanfänge im Namen gross (string camelCase)
-* **Eigenschaften** werden nach **PascalCase** benannt -> erster Buchstabe gross, Wortanfänge im Namen gross (string PascalCase)
+* **Variablen und Methoden** werden nach **camelCase** benannt -> erster Buchstabe klein, Wortanfänge im Namen gross
+* **Eigenschaften** werden nach **PascalCase** benannt -> erster Buchstabe gross, Wortanfänge im Namen gross
+```javascript
+/*returns station from input*/
+public string camelCase = "";
+public string PascalCase { get; set; }
+```
+
 
 ### 3.1.2 Methoden, Schleifen, Verzweigungen, Try Catch
 In C# kommen geschweifte Klammern grundsätzlich auf die **nächste Zeile**, weshalb ich dies bei Methoden, Schleifen und Verzweigungen einhalten werden.
@@ -98,6 +104,18 @@ Ich kommentiere grundsätzlich **jede Methode oberhalb** mit /* */, verzichte an
 public void getStation(string input)
 {
     return api.getStation(input);
+}
+```
+
+### 3.1.4 Eigenschafte
+Die Namensgebung von Eigenschaften (Propertys) ist in PascalCase. Geschweifte Klammern werde ich bei kurzer Schreibweise auf einer Zeile und bei ausgeschriebenen Eigenschaften auf die nächste Zeile schreiben.
+```javascript
+public string PascalCase { get; set; }
+private string country;
+public string Country
+{
+    get { return country }
+    set { country = value; anyFunction(); }
 }
 ```
 
